@@ -27,6 +27,7 @@ def encrypt(input_text,shift_value):
 encrypted_text = encrypt(input_text, shift_value)
 print("Encrypted text:",encrypted_text)
 
+
 def decrypt(encrypted_text):
     """
     Brute forces through all the shift values and decrypts the given encrypted text.
@@ -39,3 +40,26 @@ def decrypt(encrypted_text):
       
 
 decrypt(encrypted_text)
+
+
+
+def text_to_morse(encrypted_text):
+    """
+    Converts the encrpyted text into morse code.
+    """
+    morse_codes = ['.-','-...','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','--'
+            ,'-.','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..'
+    ]
+    
+    morse_alphabet_codes = dict(zip(list(alphabet),morse_codes))
+    print(morse_alphabet_codes)
+    encrypted_morse = ""
+    for ch in encrypted_text:
+        encrypted_morse += morse_alphabet_codes.get(ch) 
+        
+    return encrypted_morse
+    
+    
+    
+print(text_to_morse(encrypted_text))
+
